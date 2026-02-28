@@ -2,11 +2,17 @@ package dev.java10x.Cadastropessoal.Missoes;
 
 import dev.java10x.Cadastropessoal.UsuariosControler.Model;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Entity
-@Table (name = "tb_produto")
+@Table
+        (name = "tb_produto")
+@Data
+@AllArgsConstructor
 
 public class Missoes {
 
@@ -42,7 +48,6 @@ public class Missoes {
         this.quantidade = quantidade;
         this.preco = preco;
     }
-
 
 
 }

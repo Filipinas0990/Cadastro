@@ -1,15 +1,44 @@
 package dev.java10x.Cadastropessoal.UsuariosControler;
 
+import dev.java10x.Cadastropessoal.Missoes.Missoes;
+import dev.java10x.Cadastropessoal.Bussines.ProdutoService;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping
+import java.util.List;
 
+@RestController
+@RequestMapping("/produtos")
+@CrossOrigin("*")
 public class Controller {
 
-    @GetMapping("/Boas Vindas")
+    private final ProdutoService service;
 
-    public String BoasVindas() {
-        return  "Essa é a minha primeira mensagem nessa rota";
+    public Controller(ProdutoService service) {
+        this.service = service;
+    }
+
+    @PostMapping
+    public Missoes criar(@RequestBody Missoes produto) {
+        return service.salvar(produto);
+    }
+
+    @GetMapping
+    public List<Missoes> listar() {
+        return service.listar();
+    }
+
+    @GetMapping("/{id}")
+    public Missoes buscar(@PathVariable Long id) {
+        return service.buscarPorId(id);
+    }
+
+    @PutMapping("/{id}")
+    public Missoes atualizar(@PathVariable Long id, @RequestBody Missoes produtoAtualizado) {
+        return service.atualizar(id, produtoAtualizado);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletar(@PathVariable Long id) {
+        service.deletar(id);
     }
 }
