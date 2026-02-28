@@ -1,5 +1,7 @@
-package dev.java10x.Cadastropessoal;
+package dev.java10x.Cadastropessoal.UsuariosControler;
+import java.util.List;
 
+import dev.java10x.Cadastropessoal.Missoes.Missoes;
 import jakarta.persistence.*;
 
 // Entity ele transforma uma classe em uma entidade do banco de dados
@@ -9,9 +11,18 @@ public class Model {
     @Id
     @GeneratedValue(strategy = GenerationType. IDENTITY)
      private long id;
+
      private String nome;
+
       private  String email;
+
      private int idade;
+//
+     @OneToMany
+     private Missoes missoes ;
+
+
+
 
     public Model() {
     }

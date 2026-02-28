@@ -1,4 +1,4 @@
-package dev.java10x.Cadastropessoal;
+package dev.java10x.Cadastropessoal.UsuariosControler;
 
 import org.springframework.web.bind.annotation.*;
 
